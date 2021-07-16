@@ -1,0 +1,20 @@
+.banner-search-control {
+  max-width: 750px;
+}
+
+.yellow-cirlce-shape {
+  position: absolute;
+  right: 0;
+  top: 10%;
+}
+
+@media screen and (min-width: 1200px) {
+  .trademarkfilter-left-wrapper {
+    max-width: 322px;
+    width: 100%;
+  }
+  .trademarkfilter-right-wrapper {
+    max-width: calc(100% - 322px);
+    width: 100%;
+  }
+}

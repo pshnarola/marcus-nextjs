@@ -1,0 +1,458 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Roboto:wght@400;500;700&display=swap");
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Nunito", sans-serif !important;
+  background: #e5e5e5;
+}
+.lightsky-bg {
+  background: #f3f4fb;
+}
+.yellow-txt {
+  color: #ffa33d !important;
+}
+.fw-600 {
+  font-weight: 600 !important;
+}
+.text-decoration {
+  text-decoration: none;
+}
+
+.font-roboto {
+  font-family: "Roboto", sans-serif !important;
+}
+
+.border-right-0 {
+  border-right: 0px !important;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.outline-none {
+  outline: none;
+}
+
+.h-34 {
+  height: 34px;
+  min-height: 34px !important;
+}
+
+.z-index-1 {
+  z-index: 1;
+}
+
+/* Navbar CSS Start */
+.navbar.navbar-main {
+  background-color: transparent !important;
+  position: relative;
+  z-index: 11;
+  top: 35px;
+}
+
+.nav-menu-list ul li.nav-item a {
+  padding: 0px !important;
+  margin: 0px 2.75rem;
+  font-size: 16px;
+  line-height: 22px;
+  font-family: Nunito;
+  font-style: normal;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #ffffff !important;
+  transition: ease 0.25s;
+}
+
+.nav-menu-list ul li.nav-item a:hover {
+  color: #ffa33d !important;
+}
+
+.nav-menu-list ul li.nav-item a.active {
+  color: #ffa33d !important;
+}
+
+/* Comman css start */
+.letter-spacing-0 {
+  letter-spacing: 0 !important;
+}
+.section-title {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 0.3em;
+  color: #feb546;
+}
+
+.section-heading {
+  font-family: Nunito;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 44px;
+  line-height: 50px;
+  color: #020202;
+}
+
+.section-medium-heading {
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 28px;
+  color: #ffa33d;
+}
+
+.blue-btn {
+  background-color: #2e37a4 !important;
+  color: #fff !important;
+  transition: ease 0.35s;
+}
+
+.blue-btn:hover {
+  box-shadow: 0px 3px 10px 0px rgb(46 55 164 / 55%);
+}
+
+.halfcircle-shape {
+  position: absolute;
+  top: 25%;
+  left: 0;
+}
+
+/* Custom Checkbox CSS Start */
+.custom-checkbox {
+  width: 20px !important;
+  min-width: 20px !important;
+  height: 20px !important;
+  background-color: #f3f4fb !important;
+  border-radius: 2px !important;
+  border: none !important;
+  margin-right: 10px;
+  box-shadow: none !important;
+  cursor: pointer;
+}
+
+.checkbox-label {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 20px;
+  color: #626b7c;
+  text-transform: capitalize;
+  cursor: pointer;
+  position: relative;
+  top: 5px;
+}
+
+.custom-checkbox:checked[type="checkbox"] {
+  background-color: #ffa33d !important;
+}
+
+/* Section medium heading css start */
+.section-heading-medium {
+  font-family: Nunito;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 28px;
+  line-height: 28px;
+  color: #000000;
+  word-break: break-word;
+  white-space: normal;
+}
+
+/* footer section */
+.footer-section {
+  display: block;
+  background: #252a45;
+  border-top: 8px solid #ffa33d;
+  margin-top: 5rem;
+}
+
+.footer-section .container {
+  max-width: 1000px;
+}
+
+.footer-shape {
+  position: absolute;
+  bottom: -5.5rem;
+  right: 0;
+}
+
+.footer-list {
+  margin-top: 50px;
+  margin-bottom: 40px;
+  list-style: none;
+}
+
+.footer-title {
+  font-family: Nunito;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 20px;
+  line-height: 30px;
+  color: #ffa81d;
+}
+
+.footer-section li a {
+  font-family: Nunito;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 50px;
+  color: #fff;
+  position: relative;
+  padding-left: 20px;
+  text-decoration: none;
+  transition: ease 0.25s;
+}
+
+.footer-section li a:before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  background: #c4c4c4;
+  position: absolute;
+  top: 8px;
+  left: 3px;
+  border-radius: 50px;
+}
+
+.footer-section li a:hover {
+  color: #ffa33d;
+}
+
+.footer-section li a:hover:before {
+  background: #ffa33d;
+}
+
+.copyright-wrapper {
+  padding: 15px 0px;
+  border-top: 1px solid #393e5b;
+}
+
+.copyright-wrapper p {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 11px;
+  line-height: 20px;
+}
+
+/* trademarklist search css start */
+section.search-main {
+  position: relative;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.shape1-vector {
+  position: absolute;
+  right: 10%;
+  bottom: 1rem;
+}
+
+.shape2-vector {
+  position: absolute;
+  bottom: -4rem;
+  right: 2%;
+}
+
+.allpage-shape {
+  position: absolute;
+  top: -30px;
+  z-index: 1;
+}
+
+.white-box-shape {
+  width: 98%;
+  height: 197px;
+  position: absolute;
+  right: 0;
+  top: -30px;
+  background: #fff;
+}
+section.trademarklist-section {
+  z-index: 1;
+}
+/* responsive css */
+@media (max-width: 1230px) {
+  body .container {
+    max-width: 100%;
+    padding: 0 24px;
+  }
+  .navbar-dark .navbar-toggler {
+    border: 0 !important;
+    padding: 0;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .navbar-dark .navbar-toggler .navbar-toggler-icon {
+    background: transparent;
+    width: 24px !important;
+    height: 16px;
+  }
+
+  .navbar-dark .navbar-toggler .navbar-toggler-icon span.bar {
+    display: block;
+    width: 24px;
+    height: 3px;
+    background: #2e38a4;
+    border-radius: 100px;
+  }
+
+  .navbar-dark .navbar-toggler .navbar-toggler-icon span.bar + span.bar {
+    margin: 4px 0 0 0;
+  }
+  section.search-main {
+    background-image: url("../images/new-headbg.png");
+    margin: -41px 0 0 0;
+    background-size: cover;
+    background-position: top right;
+    padding: 40px 0 40px;
+    background-repeat: no-repeat;
+    border-radius: 0 0 200px 0;
+  }
+  section.search-main .allpage-shape,
+  section.search-main .white-box-shape {
+    display: none;
+  }
+  body.lightsky-bg .navbar-dark .navbar-toggler {
+    background: #fff;
+  }
+}
+@media (max-width: 1024px) {
+  section.about-section {
+    padding: 100px 0 50px !important;
+    margin: 0 !important;
+  }
+  .section-heading {
+    font-size: 34px;
+    line-height: 40px;
+  }
+  .footer-section {
+    margin-top: 3rem;
+    padding: 30px 0 0 0;
+  }
+  .footer-list {
+    margin: 0 0 15px 0;
+    padding: 0;
+  }
+  div .comprehensive-section {
+    margin: 0 !important;
+    padding: 0 0 50px 0;
+  }
+  div .exploreTrack-section {
+    padding: 50px 0 50px !important;
+    margin: 0 !important;
+  }
+  div section.growbrand-section {
+    padding: 50px 0 0 0;
+    margin: 0 !important;
+  }
+  section.trademarklist-section {
+    padding: 50px 0 0 0 !important;
+  }
+  section.trademarklist-section .row {
+    padding: 0 !important;
+    margin-top: 0 !important;
+  }
+  .shape1-vector {
+    display: none;
+  }
+  .shape2-vector {
+    right: 0;
+  }
+}
+@media (max-width: 991px) {
+  .navbar.navbar-main {
+    top: 15px;
+  }
+  .navbar-collapse {
+    position: absolute;
+    right: 15px;
+    top: 100%;
+    margin: 10px 0 0 0;
+    background: #fff;
+    border-radius: 6px;
+    box-shadow: 0 0 15px 0 rgb(255 255 255 / 20%);
+    min-width: 180px;
+  }
+
+  .navbar-collapse ul.navbar-nav {
+    margin: 0 !important;
+    padding: 5px 0;
+  }
+
+  .nav-menu-list ul li.nav-item a {
+    display: block;
+    width: 100%;
+    text-align: left;
+    margin: 0 !important;
+    color: #2e38a4 !important;
+    padding: 5px 15px !important;
+  }
+  section.search-main .allpage-shape {
+    top: -45px;
+  }
+  .trademarks-slider {
+    margin-top: -15px !important;
+    margin-bottom: 30px;
+  }
+  .toptrademarks-slider {
+    margin-bottom: 30px !important;
+  }
+}
+@media (max-width: 600px) {
+  .navbar-dark .navbar-toggler {
+    background: #ffff;
+  }
+  body .container {
+    max-width: 100%;
+    padding: 0 15px;
+    position: relative;
+  }
+  section .section-heading {
+    margin: 0 0 20px 0 !important;
+    font-size: 28px;
+    line-height: 34px;
+    padding: 0 !important;
+  }
+  .exploreTrack-section .comprehensive-rigth-wrapper {
+    text-align: left !important;
+    margin: 30px 0 0 0;
+  }
+  div .comprehensive-section,
+  div .exploreTrack-section {
+    padding: 0 0 25px 0 !important;
+  }
+  div section.growbrand-section {
+    padding: 0 0 0px 0 !important;
+    z-index: 1;
+  }
+  div section.growbrand-section .comprehensive-rigth-wrapper {
+    text-align: left !important;
+    margin: 30px 0 0 0;
+  }
+  section.search-main {
+    padding: 40px 0 80px;
+    z-index: 2;
+  }
+  section.trademarklist-section {
+    padding: 0px 0 0 0 !important;
+  }
+  .shape2-vector {
+    display: none;
+  }
+}

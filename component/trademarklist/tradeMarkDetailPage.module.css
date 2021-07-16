@@ -1,0 +1,143 @@
+.branddetails-right-info p {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 26px;
+  color: #838b9b;
+}
+
+.branddetails-img {
+  background: #fff;
+  min-height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.branddetails-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+.branddetail-list {
+  padding: 18px 25px 25px;
+  background: #fbfbfe;
+}
+
+.branddetail-heading {
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 28px;
+}
+
+.branddetail-info-list {
+  border: 1px solid #f3f4fb;
+  min-height: 50px;
+  background: #ffffff;
+  border-bottom: 0px;
+}
+
+.branddetail-info-list:last-child {
+  border-bottom: 1px solid #f3f4fb;
+}
+
+.branddetail-left-label {
+  padding: 13px 15px 13px 30px;
+  border-right: 1px solid #f3f4fb;
+  max-width: 203px;
+  width: 100%;
+}
+
+.branddetail-left-label label {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 20px;
+  color: #838b9b;
+}
+
+.branddetail-right-label {
+  padding: 13px 15px 13px 20px;
+  max-width: calc(100% - 203px);
+  width: 100%;
+}
+
+.branddetail-right-label .brand-name {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 20px;
+  color: #000000;
+  word-break: break-word;
+  white-space: normal;
+}
+
+.detailnormal-txt {
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 18px;
+  word-break: break-word;
+  white-space: normal;
+  color: #000000;
+}
+
+@media screen and (min-width: 1200px) {
+  .branddetails-left-main {
+    max-width: 374px;
+    flex: 0 0 374px;
+    margin-right: 40px;
+  }
+  .branddetails-right-main {
+    max-width: calc(100% - 414px);
+    flex: 0 0 calc(100% - 414px);
+  }
+}
+@media(max-width:1230px){
+  div .detail-section{
+    padding: 40px 0 0 !important;
+    margin: 0 !important;
+  }
+  .detail-section .branddetails-left-main,
+  .detail-section .branddetails-right-main{
+    margin-bottom: 0 !important;
+  }
+  .detail-section .branddetail-list{
+    margin: 15px 0 0 0;
+  }
+}
+@media(max-width:767px){
+  div .detail-section{
+    padding: 0px 0 0 !important;
+    margin: 0 !important;
+  }
+  .detail-section .branddetails-left-main{
+    margin-bottom: 15px !important;
+  }
+  .detail-section .branddetail-list{
+    padding: 15px;
+  }
+  .detail-section .branddetail-info-list{
+    flex-wrap: wrap;
+  }
+  .detail-section .branddetail-info-list > div{
+    width: 100%;
+    max-width: 100%;
+    padding: 15px;
+  }
+  .detail-section .branddetail-info-list > div + div{
+    padding-top: 0;
+  }
+  .trademarkdetails-row {
+    margin-bottom: 0 !important;
+  }
+}

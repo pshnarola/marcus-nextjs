@@ -1,0 +1,73 @@
+.about-intro {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 26px;
+  color: #616275;
+}
+
+.aboutus-border-circle {
+  position: absolute;
+  right: 0;
+  top: -20%;
+}
+
+.explore-btn {
+  padding: 8px 38.25px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 24px;
+  transition: ease 0.25s;
+}
+
+.shape-cricle-left {
+  position: absolute;
+  left: -7.5%;
+  top: 0;
+}
+
+.shape-cricle-right {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.explore-cricle-right {
+  top: -20%;
+}
+
+.growbrand-cricle {
+  top: -10%;
+  left: -2%;
+}
+@media(max-width:1024px){
+  .aboutus-border-circle img {
+    right: -250px !important;
+  }
+  .shape-cricle-left {
+    width: 50%;
+    opacity: .4;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .shape-cricle-right{
+    width: 60%;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+@media(max-width:600px){
+  .aboutus-border-circle{
+    display: none;
+  }
+  .explore-btn{
+    margin-top: 0 !important;
+  }
+  .shape-cricle-left,
+  .shape-cricle-right{
+    width: 100%;
+  }
+}

@@ -1,0 +1,192 @@
+.shape1 {
+  position: absolute;
+  right: 0;
+  min-width: 540px;
+  width: 50%;
+  height: 607px;
+  top: 0;
+  background: #f3f4fb;
+}
+
+section.banner-section {
+  margin-top: -56px;
+  padding: 15rem 0rem 15rem;
+}
+
+.banner-left-wrapper .do-brands span {
+  background: #ffa33d;
+  border-radius: 100px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  color: #ffffff;
+  font-family: "Roboto";
+  display: inline-block;
+  padding: 6px 30px;
+}
+
+h1.banner-title {
+  font-family: Nunito;
+  font-weight: 900;
+  font-size: 70px;
+  line-height: 95px;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+.banner-sub-label {
+  font-family: "Roboto";
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  color: #a7abda;
+}
+
+/* .banner-search-control {
+  max-width: 600px;
+  margin-top: 3.75rem;
+}
+
+.search-input-box {
+  background: #ffffff;
+  border-radius: 6px;
+  width: 100%;
+  height: 66px;
+  border: none;
+  outline: none;
+  font-family: "Roboto";
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 18px;
+  color: #838b9b;
+  padding: 20px 65px 20px 25px;
+}
+
+.banner-search-btn {
+  position: absolute;
+  right: 8px;
+  display: inline-flex;
+  width: 50px;
+  height: 50px;
+  align-items: center;
+  justify-content: center;
+  background: #ffa33d;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: ease 0.5s;
+}
+
+.banner-search-btn:hover {
+  box-shadow: 0px 0px 10px 0px #0000004f;
+} */
+
+.search-info-label {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+  color: #a7abda;
+}
+.vector1 {
+  position: absolute;
+  right: 0%;
+  bottom: -3.5rem;
+}
+.vector2 {
+  position: absolute;
+  top: 0;
+}
+
+@media (max-width: 1230px) {
+  .banner-section {
+    background-image: url("../../images/banner-vector.png");
+    background-size: cover;
+    background-position: -150px center;
+    background-repeat: no-repeat;
+    background-color: #f3f4fb;
+    z-index: 1;
+  }
+  .banner-section .vector2 img {
+    display: none !important;
+  }
+  .banner-section .shape1 {
+    display: none;
+  }
+  .banner-section .banner-left-wrapper {
+    max-width: 480px;
+  }
+}
+
+@media (max-width: 1024px) {
+  div .banner-section {
+    padding: 15rem 0rem 8rem;
+  }
+  div .banner-section .vector1 {
+    width: 500px;
+  }
+  div .banner-section .banner-left-wrapper {
+    max-width: 450px;
+  }
+  .banner-left-wrapper .do-brands span {
+    font-size: 14px;
+    padding: 5px 20px;
+  }
+  h1.banner-title {
+    font-size: 50px;
+    line-height: 75px;
+  }
+  .banner-section .banner-sub-label {
+    font-size: 14px;
+    line-height: 18px;
+  }
+  .banner-search-control {
+    margin-top: 2rem;
+  }
+  .search-info-label {
+    font-size: 14px;
+    line-height: 18px;
+  }
+}
+@media (max-width: 991px) {
+  div .banner-section {
+    padding: 5rem 0rem 8rem;
+  }
+  div .banner-section .banner-left-wrapper {
+    max-width: 320px;
+    top: 50px;
+  }
+  h1.banner-title {
+    font-size: 40px;
+    line-height: 60px;
+  }
+  div .banner-section .vector1 {
+    width: 400px;
+  }
+}
+@media (max-width: 600px) {
+  div .banner-section .vector1 {
+    width: 90%;
+    position: initial;
+    display: block;
+    margin: 0 auto -180px;
+    order: 2;
+  }
+  .banner-section {
+    display: flex;
+    flex-wrap: wrap;
+    background-position: 80% top;
+    background-color: transparent;
+  }
+  .banner-section .vector2 {
+    display: none;
+  }
+  div .banner-section .banner-left-wrapper {
+    margin: 30px 0 0;
+    top: initial;
+  }
+  div .banner-section .banner-left-wrapper {
+    max-width: 100%;
+  }
+}
