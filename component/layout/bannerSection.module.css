@@ -98,12 +98,35 @@ h1.banner-title {
   position: absolute;
   top: 0;
 }
-
+.banner-section {
+  background-image: url("../../images/main-bg-curve.png");
+  background-size: cover;
+  background-position: -270px center;
+  background-repeat: no-repeat;
+  background-color: #f3f4fb;
+  z-index: 1;
+}
+.union1 {
+  position: absolute;
+  top: 0;
+  left: 50%;
+}
+.union2 {
+  position: absolute;
+  bottom: -80px;
+  z-index: 1;
+  left: 120px;
+}
+.union3 {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
 @media (max-width: 1230px) {
   .banner-section {
-    background-image: url("../../images/banner-vector.png");
+    background-image: url("../../images/main-bg-curve.png");
     background-size: cover;
-    background-position: -150px center;
+    background-position: -270px center;
     background-repeat: no-repeat;
     background-color: #f3f4fb;
     z-index: 1;
@@ -120,6 +143,9 @@ h1.banner-title {
 }
 
 @media (max-width: 1024px) {
+  .banner-section {
+    background-position: -180px center;
+  }
   div .banner-section {
     padding: 15rem 0rem 8rem;
   }
@@ -147,6 +173,18 @@ h1.banner-title {
   .search-info-label {
     font-size: 14px;
     line-height: 18px;
+  }
+  .union1 {
+    max-width: 80px;
+    transform: translateX(-50%);
+  }
+  .union2 {
+    max-width: 80px;
+    bottom: -40px;
+    left: 80px;
+  }
+  .union3 {
+    max-width: 180px;
   }
 }
 @media (max-width: 991px) {

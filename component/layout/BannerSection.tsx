@@ -3,6 +3,9 @@ import Image from "next/image";
 import Styles from "./bannerSection.module.css";
 import SearchBar from "../common/SearchBar";
 import BannerVector from "../../images/banner-vector.png";
+import Union1 from "../../images/Union1.svg";
+import Union2 from "../../images/Union2.svg";
+import BottomCurve from "../../images/bottom-curve.png";
 // import BannerVector from "../../images/banner-vector.png";
 import Vector1 from "../../images/vector1.png";
 // import Vector1 from "../../images/vector1.png";
@@ -10,8 +13,35 @@ import Vector1 from "../../images/vector1.png";
 const BannerSection = () => {
   return (
     <section className={`${Styles[`banner-section`]} position-relative`}>
-      <div className={`${Styles[`shape1`]}`}></div>
-      <div className={`${Styles.vector2}`}>
+      <div className={Styles.union1}>
+        <Image
+          src={Union1}
+          // placeholder="blur"
+          alt="vector"
+          width="152"
+          height="152"
+        />
+      </div>
+      <div className={Styles.union2}>
+        <Image
+          src={Union2}
+          // placeholder="blur"
+          alt="vector"
+          width="152"
+          height="152"
+        />
+      </div>
+      <div className={Styles.union3}>
+        <Image
+          src={BottomCurve}
+          placeholder="blur"
+          alt="vector"
+          width="324"
+          height="324"
+        />
+      </div>
+      {/* <div className={`${Styles[`shape1`]}`}></div> */}
+      {/* <div className={`${Styles.vector2}`}>
         <Image
           src={BannerVector}
           placeholder="blur"
@@ -19,7 +49,7 @@ const BannerSection = () => {
           width="1081"
           height="856"
         />
-      </div>
+      </div> */}
       <div className={`${Styles[`vector1`]}`}>
         <Image
           src={Vector1}
