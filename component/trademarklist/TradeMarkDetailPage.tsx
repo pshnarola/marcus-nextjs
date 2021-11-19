@@ -9,7 +9,7 @@ import TopTradeMarks from "../common/TopTradeMarks";
 import Image from "next/image";
 import moment from "moment";
 
-const TradeMarkDetailPage = ({tradeDetails}) => {
+const TradeMarkDetailPage = ({tradeDetails, allSuggetion}) => {
 
   
   const dispatch = useDispatch();
@@ -30,7 +30,7 @@ const TradeMarkDetailPage = ({tradeDetails}) => {
 
   return (
     <>
-      <SubHeader />
+      <SubHeader allSuggetion={allSuggetion}/>
 
       <section
         className={`${Styles[`detail-section`]} pt-5 mt-4 position-relative`}

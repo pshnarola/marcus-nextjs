@@ -13,14 +13,14 @@ const testApi =  async () => {
 }
 
 
-const TrademarkDetail = ({eventDetails}) => {
+const TrademarkDetail = ({eventDetails, allSuggetion}) => {
   const router = useRouter();
 
   const [details, useDetails] = useState({})
 
   return (
     <div>
-      <TrademarkDetailPage tradeDetails={eventDetails.result} />
+      <TrademarkDetailPage tradeDetails={eventDetails.result} allSuggetion={allSuggetion} />
     </div>
   );
 };
@@ -45,10 +45,15 @@ export const getStaticProps = async (context) => {
   const response = await fetch(`http://192.168.100.39:3001/trademark/${context.params.trademarkdetail}`)
 
   const eventDetails = await response.json();
+
+  const response1 = await fetch(`http://192.168.100.39:3001/trademark?mark_identification=`)
+
+  const allSuggetion = await response1.json();
   
   return {
       props: {
-        eventDetails
+        eventDetails,
+        allSuggetion
       },
       revalidate: 10
   }
