@@ -52,7 +52,7 @@
 }
 
 .filterdropdown-toggle:after {
-  background-image: url("../../images/down-arrow.svg");
+  background-image: url("../../public/down-arrow.svg");
   background-repeat: no-repeat;
   position: absolute;
   border: none;

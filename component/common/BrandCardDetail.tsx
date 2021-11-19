@@ -1,23 +1,22 @@
 import React, { useState } from "react";
 import Styles from "./brandCardDetail.module.css";
-import Image from "next/image";
-import BrandLogo from "../../images/brand-logo.png";
-import { Data } from "../../interface";
-import Link from "next/link";
+import { sourceObject } from "../../interface";
 
 type Props = {
-  data: Data;
+  data: sourceObject;
   flag: boolean;
 };
+
 
 const BrandCardDetail: React.FC<Props> = ({ data, flag }) => {
   const [readMore, setReadMore] = useState<boolean>(false);
 
+  console.log("data", data)
   const extraContent = (
     <p className={`${Styles[`brand-info`]}`}>
       Lorem Ipsum is simply dummy text of the printing and typesetting industry
       Ipsum a ever since the simply dummy text of the printing and
-      {data.description}
+      {/* {data.description} */}
     </p>
   );
 
@@ -34,9 +33,7 @@ const BrandCardDetail: React.FC<Props> = ({ data, flag }) => {
                 Styles[`barnd-img-block`]
               } d-flex align-items-center justify-content-center`}
             >
-              {/* <Link href={`/trademarklist/${title}`} prefetch={true}> */}
-              <Image src={BrandLogo} height="70" width="170" loading="lazy" />
-              {/* </Link> */}
+              <img src="/brand-logo.png" height="70" width="170" />
             </div>
           </div>
           <div className={`${Styles[`searchlist-right-wrapper`]} col-md-8`}>
@@ -45,13 +42,13 @@ const BrandCardDetail: React.FC<Props> = ({ data, flag }) => {
                 Styles[`brand-title`]
               } d-flex justify-content-between flex-wrap`}
             >
-              <h3>{data.title}</h3>
+              <h3>{data.mark_identification}</h3>
               <p className={`${Styles[`brand-registered`]}`}>
-                Registered: <span>{data.registered_date}</span>
+                Registered: <span>{data.registration_date}</span>
               </p>
             </div>
             <p className={`${Styles[`owner-txt`]} pb-1`}>
-              Owner : <span>{data.owner} </span>
+              Owner : <span>{data.party_name} </span>
             </p>
             <div className={`${Styles[`brand-info-wrapper`]}`}>
               <p className={`${Styles[`brand-info`]}`}>
@@ -88,7 +85,7 @@ const BrandCardDetail: React.FC<Props> = ({ data, flag }) => {
                     : `${Styles[`yellow-gray-label`]} mb-0 `
                 }
               >
-                Registration Number :<span>{data.registration_number}</span>
+                Registration Number :<span>{ data.registration_number}</span>
               </p>
             </div>
           </div>

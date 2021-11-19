@@ -1,7 +1,8 @@
-import { SEARCH_DATA } from "../actions/search/actionTypes";
+import { SEARCH_DATA, TRADE_LIST_DATA } from "../actions/search/actionTypes";
 
 const initialState = {
   searchData: "",
+  tradelistData:[]
 };
 
 const searchReducer = (state = initialState, { type, payload }) => {
@@ -11,6 +12,11 @@ const searchReducer = (state = initialState, { type, payload }) => {
         ...state,
         searchData: payload,
       };
+    case TRADE_LIST_DATA:
+      return{
+        ...state,
+        tradelistData: payload
+      }; 
     default:
       return state;
   }

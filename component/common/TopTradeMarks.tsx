@@ -1,8 +1,6 @@
 import React from "react";
 import Slider from "react-slick";
 import { Brands } from "../../constant/brandList";
-import Image from "next/image";
-import BradLogo from "../../images/brad-logo-xl.png";
 
 interface Setting {
   slidesToShow?: number;
@@ -77,7 +75,7 @@ Property 'breakpoint' is missing in type '{ dots: false; infinite: false; speed:
         {Brands.map((item, index) => (
           <div className="trademarks-brand-img" key={index}>
             <div className="img-light-bg">
-              <Image src={BradLogo} height="57" width="140" loading="lazy" />
+              <img src="/brad-logo-xl.png" height="57" width="140" />
             </div>
           </div>
         ))}

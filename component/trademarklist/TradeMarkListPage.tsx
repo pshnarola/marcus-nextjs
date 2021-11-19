@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Image from "next/image";
 import Styles from "./tradeMarkListPage.module.css";
 import TradeMarkFilter from "./TradeMarkFilter";
 import TradeMarkResult from "./TradeMarkResult";
@@ -9,27 +8,25 @@ import { Brands } from "../../constant/brandList";
 import { useRouter } from "next/router";
 import { useDispatch, useSelector } from "react-redux";
 import { SET_SEARCHBAR_WIDTH } from "../../store/actions/search/general/actionTypes";
-import CircleLightYellow from "../../images/circle-light-yellow.svg";
-import HalfCircleShape from "../../images/halfcircle-shape.png";
 
 interface Ireducer {
   search: any;
   searchData: string;
 }
 
-const TradeMarkListPage = () => {
+const TradeMarkListPage = ({trademarks}) => {
   const [filtered, setFiltered] = useState<Array<any>>([]);
   const searchedData = useSelector(
     (state: Ireducer) => state.search.searchData
   );
 
-  useEffect(() => {
-    setFiltered(
-      Brands.filter((item) => {
-        return item.title.toLowerCase().includes(searchedData.toLowerCase());
-      })
-    );
-  }, [searchedData]);
+  // useEffect(() => {
+  //   setFiltered(
+  //     Brands.filter((item) => {
+  //       return item.title.toLowerCase().includes(searchedData.toLowerCase());
+  //     })
+  //   );
+  // }, [searchedData]);
 
   const dispatch = useDispatch();
 
@@ -58,16 +55,16 @@ const TradeMarkListPage = () => {
       <SubHeader />
       <section className="trademarklist-section pt-5 position-relative">
         <div className={`${Styles[`yellow-cirlce-shape`]}`}>
-          <Image
-            src={CircleLightYellow}
+          <img
+            src="/circle-light-yellow.svg"
             className="img-fluid"
             height="218"
             width="218"
           />
         </div>
         <div className="halfcircle-shape">
-          <Image
-            src={HalfCircleShape}
+          <img
+            src="/halfcircle-shape.png"
             className="img-fluid"
             height="264"
             width="120"
@@ -85,7 +82,8 @@ const TradeMarkListPage = () => {
             <div
               className={`${Styles[`trademarkfilter-right-wrapper`]} col-md-8`}
             >
-              <TradeMarkResult filteredValue={filtered} />
+              {console.log("trademarks ===== ",trademarks)}
+              <TradeMarkResult filteredValue={filtered} tradeMarks={trademarks} />
             </div>
           </div>
         </div>

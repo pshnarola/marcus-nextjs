@@ -1,1 +1,2 @@
 export const SEARCH_DATA = "SEARCH_DATA";
+export const TRADE_LIST_DATA = "TRADE_LIST_DATA"

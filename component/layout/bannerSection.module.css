@@ -99,7 +99,8 @@ h1.banner-title {
   top: 0;
 }
 .banner-section {
-  background-image: url("../../images/main-bg-curve.png");
+  /* background-image: url("../../public/main-bg-curve.png"); */
+  background-image: url("../../public/main-bg-curve.png");
   background-size: cover;
   background-position: -270px center;
   background-repeat: no-repeat;
@@ -124,7 +125,7 @@ h1.banner-title {
 }
 @media (max-width: 1230px) {
   .banner-section {
-    background-image: url("../../images/main-bg-curve.png");
+    background-image: url("../../public/main-bg-curve.png");
     background-size: cover;
     background-position: -270px center;
     background-repeat: no-repeat;
@@ -216,6 +217,9 @@ h1.banner-title {
     flex-wrap: wrap;
     background-position: 80% top;
     background-color: transparent;
+  }
+  .banner-section .union3 {
+    display: none;
   }
   .banner-section .vector2 {
     display: none;

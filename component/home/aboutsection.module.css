@@ -43,31 +43,32 @@
   top: -10%;
   left: -2%;
 }
-@media(max-width:1024px){
+
+@media (max-width: 1024px) {
   .aboutus-border-circle img {
     right: -250px !important;
   }
   .shape-cricle-left {
     width: 50%;
-    opacity: .4;
+    opacity: 0.4;
     top: 50%;
     transform: translateY(-50%);
   }
-  .shape-cricle-right{
+  .shape-cricle-right {
     width: 60%;
     top: 50%;
     transform: translateY(-50%);
   }
 }
-@media(max-width:600px){
-  .aboutus-border-circle{
+@media (max-width: 600px) {
+  .aboutus-border-circle {
     display: none;
   }
-  .explore-btn{
+  .explore-btn {
     margin-top: 0 !important;
   }
   .shape-cricle-left,
-  .shape-cricle-right{
+  .shape-cricle-right {
     width: 100%;
   }
 }

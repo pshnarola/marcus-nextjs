@@ -137,7 +137,7 @@
 }
 
 .custom-pagination a.pagination-left-arrow {
-  background-image: url("../../images/left-arrow.svg");
+  background-image: url("../../public/left-arrow.svg");
   background-repeat: no-repeat !important;
   background-position: center !important;
   font-size: 0px !important;
@@ -145,11 +145,11 @@
 }
 
 .custom-pagination a.pagination-left-arrow:hover {
-  background-image: url("../../images/left-white-arrow.svg") !important;
+  background-image: url("../../public/left-white-arrow.svg") !important;
 }
 
 .custom-pagination a.pagination-right-arrow {
-  background-image: url("../../images/left-arrow.svg");
+  background-image: url("../../public/left-arrow.svg");
   background-repeat: no-repeat !important;
   background-position: center !important;
   font-size: 0px !important;
@@ -158,5 +158,5 @@
 }
 
 .custom-pagination a.pagination-right-arrow:hover {
-  background-image: url("../../images/left-white-arrow.svg") !important;
+  background-image: url("../../public/left-white-arrow.svg") !important;
 }

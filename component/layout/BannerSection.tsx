@@ -1,62 +1,39 @@
 import React from "react";
-import Image from "next/image";
 import Styles from "./bannerSection.module.css";
 import SearchBar from "../common/SearchBar";
-import BannerVector from "../../images/banner-vector.png";
-import Union1 from "../../images/Union1.svg";
-import Union2 from "../../images/Union2.svg";
-import BottomCurve from "../../images/bottom-curve.png";
-// import BannerVector from "../../images/banner-vector.png";
-import Vector1 from "../../images/vector1.png";
-// import Vector1 from "../../images/vector1.png";
 
 const BannerSection = () => {
   return (
     <section className={`${Styles[`banner-section`]} position-relative`}>
       <div className={Styles.union1}>
-        <Image
-          src={Union1}
-          // placeholder="blur"
+        <img
+          className="img-fluid"
+          src="/Union1.svg"
           alt="vector"
-          width="152"
-          height="152"
+          width={152}
+          height={152}
         />
       </div>
       <div className={Styles.union2}>
-        <Image
-          src={Union2}
-          // placeholder="blur"
+        <img
+          className="img-fluid"
+          src="/Union2.svg"
           alt="vector"
-          width="152"
-          height="152"
+          width={152}
+          height={152}
         />
       </div>
       <div className={Styles.union3}>
-        <Image
-          src={BottomCurve}
-          placeholder="blur"
-          alt="vector"
-          width="324"
-          height="324"
-        />
+        <img src="/bottom-curve.png" alt="vector" width={324} height={324} />
       </div>
-      {/* <div className={`${Styles[`shape1`]}`}></div> */}
-      {/* <div className={`${Styles.vector2}`}>
-        <Image
-          src={BannerVector}
-          placeholder="blur"
-          alt="vector"
-          width="1081"
-          height="856"
-        />
-      </div> */}
+
       <div className={`${Styles[`vector1`]}`}>
-        <Image
-          src={Vector1}
-          placeholder="blur"
+        <img
+          className="img-fluid"
+          src="/vector1.png"
           alt="vector"
-          width="620"
-          height="753"
+          width={620}
+          height={753}
         />
       </div>
       <div className="container">

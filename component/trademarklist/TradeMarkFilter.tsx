@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { TradeMarkBrand, Brands, Products } from "../../constant/brandList";
 import Styles from "./trademarkFilter.module.css";
-import Image from "next/image";
-import DownDarkArrow from "../../images/downdark-arrow.svg";
-import Filtericon from "../../images/filter.svg";
 
 const TradeMarkFilter = () => {
   const [brands, setBrands] = useState<Array<string>>([]);
@@ -16,11 +13,15 @@ const TradeMarkFilter = () => {
   const [ownerExpand, setOwnerExpand] = useState<boolean>(false);
   const [productExpand, setProductExpand] = useState<boolean>(false);
   const [openToggle, setOpenToggle] = useState<boolean>(false);
+  const [filter, setFilter] = useState<boolean>(false);
 
   useEffect(() => {
     setBrands(TradeMarkBrand);
     setProducts(Products);
     setOwner(Brands);
+    if (window.innerWidth < 720) {
+      setFilter(true);
+    }
   }, []);
 
   const showMoreBrands = () => {
@@ -62,7 +63,16 @@ const TradeMarkFilter = () => {
         <div className={`${Styles[`card-body`]}`}>
           <h4 onClick={toggleHandler} className={`${Styles[`filter-label`]}`}>
             Sort By
-            <Image src={Filtericon} />
+            {filter ? (
+              <img
+                src="/filter.svg"
+                className="filter_icon"
+                height="16"
+                width="16"
+              />
+            ) : (
+              ""
+            )}
           </h4>
           <div
             className={openToggle ? "" : `${Styles[`Filter-dropdown-wrapper`]}`}
@@ -141,7 +151,7 @@ const TradeMarkFilter = () => {
               ) : (
                 <span>Show more</span>
               )}
-              <Image src={DownDarkArrow} loading="lazy" height="8" width="13" />
+              <img src="/downdark-arrow.svg" height="8" width="13" />
             </a>
             <h4 className={`${Styles[`filter-label`]} mb-3`}>Owners</h4>
             <ul className="list-group">
@@ -179,7 +189,7 @@ const TradeMarkFilter = () => {
               onClick={showMoreOwner}
             >
               {ownerExpand ? <span>Show less</span> : <span>Show more</span>}
-              <Image src={DownDarkArrow} loading="lazy" height="8" width="13" />
+              <img src="/downdark-arrow.svg" height="8" width="13" />
             </a>
             <h4 className={`${Styles[`filter-label`]} mb-3`}>
               Goods & Services
@@ -219,7 +229,7 @@ const TradeMarkFilter = () => {
               onClick={showMoreProducts}
             >
               {productExpand ? <span>Show less</span> : <span>Show more</span>}
-              <Image src={DownDarkArrow} loading="lazy" height="8" width="13" />
+              <img src="/downdark-arrow.svg" height="8" width="13" />
             </a>
           </div>
         </div>

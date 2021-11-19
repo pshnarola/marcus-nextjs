@@ -1,4 +1,4 @@
-export interface Data {
+export interface sourceObject  {
   title?: string;
   owner?: string;
   registered_date?: string;
@@ -9,4 +9,7 @@ export interface Data {
   classification?: string;
   Attorney?: string;
   first_user?: string;
+  mark_identification?: any;
+  party_name?: any;
+  registration_date?: any;
 }

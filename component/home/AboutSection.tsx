@@ -1,20 +1,17 @@
 import React from "react";
-import Image from "next/image";
 import Styles from "./aboutsection.module.css";
-import BorderCircle from "../../images/border-cricle.svg";
-import Comprehensive from "../../images/comprehensive.svg";
-import Circle from "../../images/circle.svg";
-import SearchTrack from "../../images/search-track.svg";
-// import SearchTrack from "../../images/search-track.svg";
-import CircleRight from "../../images/circle-right.svg";
-import BuildProtect from "../../images/build-protect.svg";
 
 const AboutSection = () => {
   return (
     <>
       <section className="about-section pt-5 mt-5 mb-4 position-relative">
         <div className={`${Styles[`aboutus-border-circle`]}`}>
-          <Image src={BorderCircle} height="690" width="325" loading="lazy" />
+          <img
+            className="img-fluid"
+            src="/border-cricle.svg"
+            height="690"
+            width="325"
+          />
         </div>
         <div className="container">
           <div className="row">
@@ -48,17 +45,22 @@ const AboutSection = () => {
 
       <section className="comprehensive-section position-relative mb-2">
         <div className={`${Styles[`shape-cricle-left`]}`}>
-          <Image src={Circle} height="487" width="487" loading="lazy" />
+          <img
+            className="img-fluid"
+            src="/circle.svg"
+            height="487"
+            width="487"
+          />
         </div>
         <div className="container">
           <div className="row align-items-center">
             <div className="col-sm-12 col-md-6 col-lg-6 col-xl-6">
-              <div className="comprehensive-left-wrapper">
-                <Image
-                  src={Comprehensive}
+              <div className={`${Styles[`comprehensive-left-wrapper`]}`}>
+                <img
+                  className="img-fluid"
+                  src="/comprehensive.svg"
                   height="490"
                   width="515"
-                  loading="lazy"
                 />
               </div>
             </div>
@@ -90,7 +92,12 @@ const AboutSection = () => {
             Styles[`explore-cricle-right`]
           }`}
         >
-          <Image src={CircleRight} height="487" width="487" loading="lazy" />
+          <img
+            className="img-fluid"
+            src="/circle-right.svg"
+            height="487"
+            width="487"
+          />
         </div>
         <div className="container">
           <div className="row align-items-center">
@@ -114,11 +121,11 @@ const AboutSection = () => {
             </div>
             <div className="col-sm-12 col-md-6 col-lg-6 col-xl-6 order-1 order-sm-2">
               <div className="comprehensive-left-wrapper">
-                <Image
-                  src={SearchTrack}
+                <img
+                  className="img-fluid"
+                  src="/search-track.svg"
                   height="415"
                   width="676"
-                  loading="lazy"
                 />
               </div>
             </div>
@@ -132,17 +139,22 @@ const AboutSection = () => {
             Styles[`growbrand-cricle`]
           }`}
         >
-          <Image src={Circle} height="500" width="384" loading="lazy" />
+          <img
+            className="img-fluid"
+            src="/circle.svg"
+            height="500"
+            width="384"
+          />
         </div>
         <div className="container">
           <div className="row align-items-center">
             <div className="col-sm-12 col-md-6 col-lg-6 col-xl-6">
               <div className="comprehensive-left-wrapper">
-                <Image
-                  src={BuildProtect}
+                <img
+                  className="img-fluid"
+                  src="/build-protect.svg"
                   height="430"
                   width="565"
-                  loading="lazy"
                 />
               </div>
             </div>

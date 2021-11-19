@@ -282,7 +282,51 @@ section.search-main {
 section.trademarklist-section {
   z-index: 1;
 }
+
 /* responsive css */
+@media (min-width: 1600px) {
+  .sub-header-section {
+    background-position: -450px bottom;
+  }
+}
+@media (min-width: 1231px) {
+  .lightsky-bg:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 197px;
+    background: #fff;
+  }
+  .sub-header-section {
+    background-image: url("../public/sub-curve-bg.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: -300px bottom;
+    height: 265px;
+    position: relative;
+    z-index: 1;
+  }
+  .sub-header-section .union1 {
+    position: absolute;
+    left: 30%;
+    max-width: 120px;
+    top: -50px;
+  }
+  .sub-header-section .union2 {
+    position: absolute;
+    max-width: 120px;
+    bottom: -60px;
+    left: 50%;
+  }
+  .sub-header-section .union3 {
+    position: absolute;
+    max-width: 220px;
+    bottom: 0;
+    left: 0;
+  }
+}
 @media (max-width: 1230px) {
   body .container {
     max-width: 100%;
@@ -316,7 +360,7 @@ section.trademarklist-section {
     margin: 4px 0 0 0;
   }
   section.search-main {
-    background-image: url("../images/new-headbg.png");
+    background-image: url("../public/new-headbg.png");
     margin: -41px 0 0 0;
     background-size: cover;
     background-position: top right;
@@ -330,6 +374,11 @@ section.trademarklist-section {
   }
   body.lightsky-bg .navbar-dark .navbar-toggler {
     background: #fff;
+  }
+  .sub-header-section .union1,
+  .sub-header-section .union2,
+  .sub-header-section .union3 {
+    display: none;
   }
 }
 @media (max-width: 1024px) {
@@ -455,4 +504,28 @@ section.trademarklist-section {
   .shape2-vector {
     display: none;
   }
+}
+
+.filter_icon {
+  position: absolute;
+  right: 25px;
+}
+
+.comprehensive-section .container {
+  position: relative;
+  z-index: 1;
+}
+.growbrand-section .container {
+  position: relative;
+  z-index: 1;
+}
+.exploreTrack-section .container {
+  position: relative;
+  z-index: 1;
+}
+
+.img-fluid {
+  vertical-align: middle;
+  width: 100%;
+  height: auto;
 }

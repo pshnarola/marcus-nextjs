@@ -309,7 +309,7 @@
 .trademarks-slider .slick-slider button.slick-arrow.slick-prev:before,
 .toptrademarks-slider .slick-slider button.slick-arrow.slick-prev:before {
   content: "";
-  background-image: url("../images/left-arrow.svg");
+  background-image: url("../public/left-arrow.svg");
   height: 19px;
   width: 12px;
   background-size: contain;
@@ -320,7 +320,7 @@
 .trademarks-slider .slick-slider button.slick-arrow.slick-next:before,
 .toptrademarks-slider .slick-slider button.slick-arrow.slick-next:before {
   content: "";
-  background-image: url("../images/left-arrow.svg");
+  background-image: url("../public/left-arrow.svg");
   height: 19px;
   width: 12px;
   background-size: contain;
@@ -341,7 +341,7 @@
 .toptrademarks-slider .slick-slider button.slick-arrow.slick-prev:hover:before,
 .toptrademarks-slider .slick-slider button.slick-arrow.slick-next:hover:before {
   content: "";
-  background-image: url("../images/left-white-arrow.svg");
+  background-image: url("../public/left-white-arrow.svg");
 }
 body ul.slick-dots {
   display: none !important;

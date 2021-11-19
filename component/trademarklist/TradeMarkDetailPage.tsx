@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import Image from "next/image";
 import SubHeader from "../layout/SubHeader";
 import Styles from "./tradeMarkDetailPage.module.css";
 import { SET_SEARCHBAR_WIDTH } from "../../store/actions/search/general/actionTypes";
@@ -7,10 +6,12 @@ import { useDispatch } from "react-redux";
 import Footer from "../layout/Footer";
 import TradeMarkSimilarSlider from "../common/TradeMarkSimilar";
 import TopTradeMarks from "../common/TopTradeMarks";
-import BradLogo from "../../images/brad-logo-xl.png";
-import HalfCircleShape from "../../images/halfcircle-shape.png";
+import Image from "next/image";
+import moment from "moment";
 
-const TradeMarkDetailPage = () => {
+const TradeMarkDetailPage = ({tradeDetails}) => {
+
+  console.log("details page tradeDetails", tradeDetails)
   const dispatch = useDispatch();
   useEffect(() => {
     document.body.className += "lightsky-bg";
@@ -35,12 +36,11 @@ const TradeMarkDetailPage = () => {
         className={`${Styles[`detail-section`]} pt-5 mt-4 position-relative`}
       >
         <div className="halfcircle-shape">
-          <Image
-            src={HalfCircleShape}
+          <img
+            src="/halfcircle-shape.png"
             className="img-fluid"
             height="264"
             width="120"
-            loading="lazy"
           />
         </div>
         <div className="container mt-3">
@@ -58,8 +58,8 @@ const TradeMarkDetailPage = () => {
               } col-sm-4 col-md-4 col-lg-4 mb-5`}
             >
               <div className={`${Styles[`branddetails-img`]}`}>
-                <Image
-                  src={BradLogo}
+                <img
+                  src="/brad-logo-xl.png"
                   className="img-fluid"
                   alt="vector"
                   width="350"
@@ -104,14 +104,14 @@ const TradeMarkDetailPage = () => {
                 <h4
                   className={`${Styles[`branddetail-heading`]} yellow-txt mb-3`}
                 >
-                  Nike Trademark Details
+                  {tradeDetails.mark_identification} Trademark Details
                 </h4>
                 <div className={`${Styles[`branddetail-info-list`]} d-flex`}>
                   <div className={`${Styles[`branddetail-left-label`]}`}>
                     <label>Mark :</label>
                   </div>
                   <div className={`${Styles[`branddetail-right-label`]}`}>
-                    <span className={`${Styles[`brand-name`]}`}>NIKE</span>
+                    <span className={`${Styles[`brand-name`]}`}>{tradeDetails.mark_identification}</span>
                   </div>
                 </div>
                 <div className={`${Styles[`branddetail-info-list`]} d-flex`}>
@@ -122,7 +122,7 @@ const TradeMarkDetailPage = () => {
                     <span
                       className={`${Styles[`detailnormal-txt`]} yellow-txt`}
                     >
-                      8882727
+                      {tradeDetails.serial_number}
                     </span>
                   </div>
                 </div>
@@ -134,7 +134,7 @@ const TradeMarkDetailPage = () => {
                     <span
                       className={`${Styles[`detailnormal-txt`]} yellow-txt`}
                     >
-                      8882828
+                      {tradeDetails.registration_number}
                     </span>
                   </div>
                 </div>
@@ -144,7 +144,7 @@ const TradeMarkDetailPage = () => {
                   </div>
                   <div className={`${Styles[`branddetail-right-label`]}`}>
                     <span className={`${Styles[`detailnormal-txt`]}`}>
-                      <b>Nike, Inc.</b>
+                      <b>{tradeDetails.party_name}</b>
                     </span>
                   </div>
                 </div>
@@ -154,7 +154,7 @@ const TradeMarkDetailPage = () => {
                   </div>
                   <div className={`${Styles[`branddetail-right-label`]}`}>
                     <span className={`${Styles[`detailnormal-txt`]} fw-600`}>
-                      014 Atheletic Footwear
+                      {tradeDetails.classification}
                     </span>
                   </div>
                 </div>
@@ -164,11 +164,11 @@ const TradeMarkDetailPage = () => {
                   </div>
                   <div className={`${Styles[`branddetail-right-label`]}`}>
                     <span className={`${Styles[`detailnormal-txt`]} fw-600`}>
-                      December 18, 1992
+                      {moment(tradeDetails.registration_date).format('MMMM D, YYYY') == "Invalid date" ? "-" : moment(tradeDetails.registration_date).format('MMMM D, YYYY')}     
                     </span>
                   </div>
                 </div>
-                <div className={`${Styles[`branddetail-info-list`]} d-flex`}>
+                {/* <div className={`${Styles[`branddetail-info-list`]} d-flex`}>
                   <div className={`${Styles[`branddetail-left-label`]}`}>
                     <label>Date of Registration </label>
                   </div>
@@ -177,7 +177,7 @@ const TradeMarkDetailPage = () => {
                       December 18, 1992
                     </span>
                   </div>
-                </div>
+                </div> */}
                 <div className={`${Styles[`branddetail-info-list`]} d-flex`}>
                   <div className={`${Styles[`branddetail-left-label`]}`}>
                     <label>Description</label>
@@ -202,7 +202,7 @@ const TradeMarkDetailPage = () => {
                   </div>
                   <div className={`${Styles[`branddetail-right-label`]}`}>
                     <span className={`${Styles[`detailnormal-txt`]} fw-600`}>
-                      December 18, 1992
+                     {moment(tradeDetails.first_use_anywhere_date).format('MMMM D, YYYY') == "Invalid date" ? "-" : moment(tradeDetails.first_use_anywhere_date).format('MMMM D, YYYY')}
                     </span>
                   </div>
                 </div>
@@ -216,7 +216,7 @@ const TradeMarkDetailPage = () => {
                   </div>
                   <div className={`${Styles[`branddetail-right-label`]}`}>
                     <span className={`${Styles[`detailnormal-txt`]} fw-600`}>
-                      Jaime Lemons
+                      {tradeDetails.attorney_name}
                     </span>
                   </div>
                 </div>

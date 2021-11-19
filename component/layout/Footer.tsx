@@ -1,8 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Image from "next/image";
 import { useRouter } from "next/router";
-import FooterNewShape from "../../images/footer-newshape.png";
-import FooterShape from "../../images/footer-shape.png";
 
 const footer = () => {
   const [flag, setFlag] = useState<boolean>(false);
@@ -19,14 +16,9 @@ const footer = () => {
       <div className="footer-shape-wrapper position-relative">
         <div className="footer-shape">
           {flag ? (
-            <Image
-              src={FooterNewShape}
-              height="192"
-              width="192"
-              loading="lazy"
-            />
+            <img src="/footer-newshape.png" height="192" width="192" />
           ) : (
-            <Image src={FooterShape} height="192" width="192" loading="lazy" />
+            <img src="/footer-shape.png" height="192" width="192" />
           )}
         </div>
       </div>
