@@ -22,7 +22,7 @@ interface Ireducer {
   tradelistData: any; 
 }
 
-const SearchBar = () => {
+const SearchBar = ({allSuggetion}) => {
   const router = useRouter();
   const [trademarksugg, setTrademarksugg] = useState("");
   const [state, setState] = useState<Istate>({
@@ -62,15 +62,14 @@ const SearchBar = () => {
   }, [state.flag]);
 
 
-const onChangeHandler = debounce((val)=>{
-  console.log("val", val)
+const onChangeHandler2 = debounce((val)=>{
   setTrademarksugg(val)
   const userInput = val;
 
-  console.log("userInput",userInput)
+  // sendQuery(userInput)  // temp
 
-  sendQuery(userInput) 
-  const trad = trademarklistData.filter(function (sugg) {
+  // const trad = trademarklistData.filter(function (sugg) {
+  const trad = allSuggetion.response.filter(function (sugg) {
     if(sugg._source.mark_identification.toLowerCase().indexOf(userInput.toLowerCase()) > -1){
       return sugg;
     }
@@ -97,9 +96,39 @@ const onChangeHandler = debounce((val)=>{
   });
 },500) 
 
+const onChangeHandler = (val)=>{
+  setTrademarksugg(val)
+  const userInput = val;
+
+  const trad = allSuggetion?.response?.filter(function (sugg) {
+    if(sugg._source.mark_identification.toLowerCase().indexOf(userInput.toLowerCase()) > -1){
+      return sugg;
+    }
+});
+
+
+  const filteredSuggestions = trad.map(
+      (suggestion) => 
+      {
+        return suggestion._source.mark_identification
+      }
+    );
+
+  setState({
+    activeSuggestion: 0,
+    filteredSuggestions,
+    showSuggestions: true,
+    userInput,
+    selectTrad: ""
+  });
+  dispatch({
+    type: SEARCH_DATA,
+    payload: state.userInput,
+  });
+}
+
 
   const onSearchHandler = () => {
-    console.log("payload state.userInput", state.userInput)
     if (router.pathname === "/") {
       router.push("/trademarklist");
       dispatch({
@@ -129,7 +158,6 @@ const onChangeHandler = debounce((val)=>{
   };
 
   const onKeyDownHandler = (e) => {
-    console.log("onKeyDownHandler called",e)
     const { activeSuggestion, filteredSuggestions = [] } = state;
     // User pressed the enter key
     if (e.keyCode === 13) {

@@ -11,7 +11,6 @@ type Props = {
 const BrandCardDetail: React.FC<Props> = ({ data, flag }) => {
   const [readMore, setReadMore] = useState<boolean>(false);
 
-  console.log("data", data)
   const extraContent = (
     <p className={`${Styles[`brand-info`]}`}>
       Lorem Ipsum is simply dummy text of the printing and typesetting industry

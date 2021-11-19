@@ -11,7 +11,7 @@ import moment from "moment";
 
 const TradeMarkDetailPage = ({tradeDetails}) => {
 
-  console.log("details page tradeDetails", tradeDetails)
+  
   const dispatch = useDispatch();
   useEffect(() => {
     document.body.className += "lightsky-bg";

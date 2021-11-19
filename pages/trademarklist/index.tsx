@@ -9,9 +9,16 @@ interface Ireducer {
   tradelistData: any;
 }
 
-const TrademarkList = () => {
+const testApi =  async () => {
+  const response = await fetch(`http://192.168.100.39:3001/trademark?mark_identification=`)
 
-  const [trademarks, setTrademarks] = useState<Array<string>>([]);
+    const data = await response.json();
+    
+    return data;
+}
+
+const TrademarkList = ({allSuggetion}) => {
+
   const searchedData = useSelector(
     (state: Ireducer) => state.search.searchData
   );
@@ -20,19 +27,26 @@ const TrademarkList = () => {
     (state: Ireducer) => state.search.tradelistData
   );
 
-  console.log("trademarklistData.....", trademarklistData)
-
-  useEffect(() => { 
-    console.log("searchedData",searchedData)
-    // axios.get(`http://192.168.100.39:3001/trademark?mark_identification=${searchedData}`)
-    // .then(res => setTrademarks(res.data.response)).catch(err => console.log("err",err))
-  }, [searchedData])
 
   return (
     <div>
-      <TrademarkListPage trademarks={trademarklistData} />
+      <TrademarkListPage trademarks={trademarklistData} allSuggetion={allSuggetion} />
     </div>
   );
 };
+
+
+
+export const getStaticProps = async () => {
+  const events = await testApi();
+  return {
+      props: {
+          allSuggetion: events
+      },
+      revalidate: 60
+  }
+}
+
+
 
 export default TrademarkList;

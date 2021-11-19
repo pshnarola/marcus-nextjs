@@ -2,7 +2,7 @@ import React from "react";
 import Styles from "./bannerSection.module.css";
 import SearchBar from "../common/SearchBar";
 
-const BannerSection = () => {
+const BannerSection = ({allSuggetion}) => {
   return (
     <section className={`${Styles[`banner-section`]} position-relative`}>
       <div className={Styles.union1}>
@@ -50,7 +50,7 @@ const BannerSection = () => {
                 Explore thousands of brands and keep track of what matters
               </p>
 
-              <SearchBar />
+              <SearchBar allSuggetion={allSuggetion}/>
               <p className={`${Styles[`search-info-label`]} mb-0`}>
                 Try searching for a brand or company and get instant
                 information.

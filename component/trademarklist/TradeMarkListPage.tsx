@@ -14,7 +14,7 @@ interface Ireducer {
   searchData: string;
 }
 
-const TradeMarkListPage = ({trademarks}) => {
+const TradeMarkListPage = ({trademarks, allSuggetion}) => {
   const [filtered, setFiltered] = useState<Array<any>>([]);
   const searchedData = useSelector(
     (state: Ireducer) => state.search.searchData
@@ -52,7 +52,7 @@ const TradeMarkListPage = ({trademarks}) => {
 
   return (
     <>
-      <SubHeader />
+      <SubHeader allSuggetion={allSuggetion} />
       <section className="trademarklist-section pt-5 position-relative">
         <div className={`${Styles[`yellow-cirlce-shape`]}`}>
           <img
@@ -82,8 +82,8 @@ const TradeMarkListPage = ({trademarks}) => {
             <div
               className={`${Styles[`trademarkfilter-right-wrapper`]} col-md-8`}
             >
-              {console.log("trademarks ===== ",trademarks)}
-              <TradeMarkResult filteredValue={filtered} tradeMarks={trademarks} />
+         
+              <TradeMarkResult filteredValue={filtered} tradeMarks={trademarks} allSuggetion={allSuggetion}/>
             </div>
           </div>
         </div>

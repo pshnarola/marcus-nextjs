@@ -1,7 +1,7 @@
 import React from "react";
 import MainHeader from "./MainHeader";
 import SearchBar from "../common/SearchBar";
-const SubHeader = () => {
+const SubHeader = ({allSuggetion}) => {
   return (
     <div className="sub-header-section">
       <div className="union1">
@@ -25,7 +25,7 @@ const SubHeader = () => {
         </div>
 
         <div className="container">
-          <SearchBar />
+          <SearchBar allSuggetion={allSuggetion}/>
         </div>
       </section>
     </div>

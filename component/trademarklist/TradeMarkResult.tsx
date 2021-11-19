@@ -7,13 +7,11 @@ import BrandCardDetail from "../common/BrandCardDetail";
 type Props = {
   filteredValue: Array<any>;
   tradeMarks: Array<any>;
+  allSuggetion: Array<any>;
 };
 
 const TradeMarkResult: React.FC<Props> = ({ filteredValue, tradeMarks }) => {
   const [currentPage, setCurrentPage] = useState<number>(0);
-
-  console.log("filteredValue", filteredValue)
-  console.log("tradeMarks display", tradeMarks)
 
   const PER_PAGE = 3;
   const off_set = currentPage * PER_PAGE;
@@ -52,11 +50,10 @@ const TradeMarkResult: React.FC<Props> = ({ filteredValue, tradeMarks }) => {
             </li>
           </ul>
         </div>
-        {/* {console.log("currentPageData", currentPageData)} */}
         {currentPageData && currentPageData.map((item, index) => {
           const title = item._source.mark_identification
           const id = item._source.serial_number
-          console.log("title", title)
+
           return (
             <Link href={`/trademarklist/${id}`} prefetch={true} key={index}>
               <div>
