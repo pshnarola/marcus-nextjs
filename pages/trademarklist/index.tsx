@@ -10,7 +10,7 @@ interface Ireducer {
 }
 
 const testApi =  async () => {
-  const response = await fetch(`http://192.168.100.39:3001/trademark?mark_identification=`)
+  const response = await fetch(`http://54.148.29.225:3000/trademark?mark_identification=`)
 
     const data = await response.json();
     

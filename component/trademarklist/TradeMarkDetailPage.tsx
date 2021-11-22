@@ -172,7 +172,7 @@ const TradeMarkDetailPage: React.FC<Props> = ({tradeDetails, allSuggetion}) => {
                   </div>
                   <div className={`${Styles[`branddetail-right-label`]}`}>
                     <span className={`${Styles[`detailnormal-txt`]} fw-600`}>
-                    {/* {moment(tradeDetails.registration_date, "MMMM D, YYYY") } */}
+                    {/* {moment(tradeDetails.registration_date, "MMMM DD, YYYY") } */}
                       {moment(tradeDetails.registration_date).format('MMMM DD YYYY') == "Invalid date" ? "-" : moment(tradeDetails.registration_date).format('MMMM DD YYYY')}     
                     </span>
                   </div>
@@ -211,6 +211,7 @@ const TradeMarkDetailPage: React.FC<Props> = ({tradeDetails, allSuggetion}) => {
                   </div>
                   <div className={`${Styles[`branddetail-right-label`]}`}>
                     <span className={`${Styles[`detailnormal-txt`]} fw-600`}>
+                    {/* {moment(tradeDetails.first_use_anywhere_date, "MMMM DD, YYYY") } */}
                      {moment(tradeDetails.first_use_anywhere_date).format('MMMM DD YYYY') == "Invalid date" ? "-" : moment(tradeDetails.first_use_anywhere_date).format('MMMM DD YYYY')}
                     </span>
                   </div>

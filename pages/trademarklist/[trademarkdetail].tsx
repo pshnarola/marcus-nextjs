@@ -4,7 +4,7 @@ import TrademarkDetailPage from "../../component/trademarklist/TradeMarkDetailPa
 
 
 const testApi =  async () => {
-  const response = await fetch(`http://192.168.100.39:3001/trademark?mark_identification=`)
+  const response = await fetch(`http://54.148.29.225:3000/trademark?mark_identification=`)
 
     const data = await response.json();
     
@@ -32,17 +32,18 @@ export const getStaticPaths = async () => {
 
   return {
       paths: paths,
+      // fallback: true,
       fallback: false,
       // fallback: 'blocking'
   }
 }
 
 export const getStaticProps = async (context) => {
-  const response = await fetch(`http://192.168.100.39:3001/trademark/${context.params.trademarkdetail}`)
+  const response = await fetch(`http://54.148.29.225:3000/trademark/${context.params.trademarkdetail}`)
 
   const eventDetails = await response.json();
 
-  const response1 = await fetch(`http://192.168.100.39:3001/trademark?mark_identification=`)
+  const response1 = await fetch(`http://54.148.29.225:3000/trademark?mark_identification=`)
 
   const allSuggetion = await response1.json();
 
