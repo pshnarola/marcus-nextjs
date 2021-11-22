@@ -32,8 +32,8 @@ export const getStaticPaths = async () => {
 
   return {
       paths: paths,
-      // fallback: false,
-      fallback: true
+      fallback: false,
+      // fallback: 'blocking'
   }
 }
 
@@ -45,10 +45,10 @@ export const getStaticProps = async (context) => {
   const response1 = await fetch(`http://192.168.100.39:3001/trademark?mark_identification=`)
 
   const allSuggetion = await response1.json();
-  
+
   return {
       props: {
-        eventDetails : eventDetails.result,
+        eventDetails: eventDetails.result,
         allSuggetion
       },
       revalidate: 10

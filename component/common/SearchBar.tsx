@@ -62,43 +62,45 @@ const SearchBar = ({allSuggetion}) => {
   }, [state.flag]);
 
 
-const onChangeHandler2 = debounce((val)=>{
-  setTrademarksugg(val)
-  const userInput = val;
+// const onChangeHandler2 = debounce((val)=>{
+//   setTrademarksugg(val)
+//   const userInput = val;
 
-  // sendQuery(userInput)  // temp
-
-  // const trad = trademarklistData.filter(function (sugg) {
-  const trad = allSuggetion.response.filter(function (sugg) {
-    if(sugg._source.mark_identification.toLowerCase().indexOf(userInput.toLowerCase()) > -1){
-      return sugg;
-    }
-});
+//   // sendQuery(userInput)  // temp
 
 
-  const filteredSuggestions = trad.map(
-      (suggestion) => 
-      {
-        return suggestion._source.mark_identification
-      }
-    );
+//   // const trad = trademarklistData.filter(function (sugg) {
+//   const trad = allSuggetion.response.filter(function (sugg) {
+//     if(sugg._source.mark_identification.toLowerCase().indexOf(userInput.toLowerCase()) > -1){
+//       return sugg;
+//     }
+// });
 
-  setState({
-    activeSuggestion: 0,
-    filteredSuggestions,
-    showSuggestions: true,
-    userInput,
-    selectTrad: ""
-  });
-  dispatch({
-    type: SEARCH_DATA,
-    payload: state.userInput,
-  });
-},500) 
+
+//   const filteredSuggestions = trad.map(
+//       (suggestion) => 
+//       {
+//         return suggestion._source.mark_identification
+//       }
+//     );
+
+//   setState({
+//     activeSuggestion: 0,
+//     filteredSuggestions,
+//     showSuggestions: true,
+//     userInput,
+//     selectTrad: ""
+//   });
+//   dispatch({
+//     type: SEARCH_DATA,
+//     payload: state.userInput,
+//   });
+// },500) 
 
 const onChangeHandler = (val)=>{
   setTrademarksugg(val)
   const userInput = val;
+// console.log("allSuggetion",allSuggetion);
 
   const trad = allSuggetion?.response?.filter(function (sugg) {
     if(sugg._source.mark_identification.toLowerCase().indexOf(userInput.toLowerCase()) > -1){
@@ -113,6 +115,8 @@ const onChangeHandler = (val)=>{
         return suggestion._source.mark_identification
       }
     );
+    // console.log({filteredSuggestions});
+    
 
   setState({
     activeSuggestion: 0,
@@ -123,7 +127,7 @@ const onChangeHandler = (val)=>{
   });
   dispatch({
     type: SEARCH_DATA,
-    payload: state.userInput,
+    payload: userInput,
   });
 }
 

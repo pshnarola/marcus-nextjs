@@ -6,16 +6,16 @@ import { useDispatch } from "react-redux";
 import Footer from "../layout/Footer";
 import TradeMarkSimilarSlider from "../common/TradeMarkSimilar";
 import TopTradeMarks from "../common/TopTradeMarks";
+import {detailsObject} from "../../interface/index"
 import Image from "next/image";
 import moment from "moment";
 
 type Props = {
-  tradeDetails: any;
-  allSuggetion: Array<any>;
+  tradeDetails?: detailsObject;
+  allSuggetion?: Array<any>;
 };
 
 const TradeMarkDetailPage: React.FC<Props> = ({tradeDetails, allSuggetion}) => {
-
   const dispatch = useDispatch();
   useEffect(() => {
     document.body.className += "lightsky-bg";
@@ -32,10 +32,11 @@ const TradeMarkDetailPage: React.FC<Props> = ({tradeDetails, allSuggetion}) => {
     };
   }, []);
 
+
   return (
     <>
       <SubHeader allSuggetion={allSuggetion}/>
-    {console.log("tradeDetails",tradeDetails)}
+  
       <section
         className={`${Styles[`detail-section`]} pt-5 mt-4 position-relative`}
       >
@@ -109,14 +110,16 @@ const TradeMarkDetailPage: React.FC<Props> = ({tradeDetails, allSuggetion}) => {
                 <h4
                   className={`${Styles[`branddetail-heading`]} yellow-txt mb-3`}
                 >
-                  {tradeDetails.mark_identification} Trademark Details
+                   Trademark Details
                 </h4>
                 <div className={`${Styles[`branddetail-info-list`]} d-flex`}>
                   <div className={`${Styles[`branddetail-left-label`]}`}>
                     <label>Mark :</label>
                   </div>
                   <div className={`${Styles[`branddetail-right-label`]}`}>
-                    <span className={`${Styles[`brand-name`]}`}>{tradeDetails.mark_identification}</span>
+                    <span className={`${Styles[`detailnormal-txt`]}`}>
+                      {tradeDetails.mark_identification == undefined ? "" : tradeDetails.mark_identification}
+                      </span>
                   </div>
                 </div>
                 <div className={`${Styles[`branddetail-info-list`]} d-flex`}>
@@ -208,7 +211,6 @@ const TradeMarkDetailPage: React.FC<Props> = ({tradeDetails, allSuggetion}) => {
                   </div>
                   <div className={`${Styles[`branddetail-right-label`]}`}>
                     <span className={`${Styles[`detailnormal-txt`]} fw-600`}>
-                    {/* {moment(tradeDetails.first_use_anywhere_date, "MMMM D, YYYY")} */}
                      {moment(tradeDetails.first_use_anywhere_date).format('MMMM DD YYYY') == "Invalid date" ? "-" : moment(tradeDetails.first_use_anywhere_date).format('MMMM DD YYYY')}
                     </span>
                   </div>
