@@ -15,18 +15,11 @@ interface Ireducer {
 }
 
 const TradeMarkListPage = ({trademarks, allSuggetion}) => {
-  const [filtered, setFiltered] = useState<Array<any>>([]);
+
   const searchedData = useSelector(
     (state: Ireducer) => state.search.searchData
   );
 
-  // useEffect(() => {
-  //   setFiltered(
-  //     Brands.filter((item) => {
-  //       return item.title.toLowerCase().includes(searchedData.toLowerCase());
-  //     })
-  //   );
-  // }, [searchedData]);
 
   const dispatch = useDispatch();
 
@@ -83,7 +76,7 @@ const TradeMarkListPage = ({trademarks, allSuggetion}) => {
               className={`${Styles[`trademarkfilter-right-wrapper`]} col-md-8`}
             >
          
-              <TradeMarkResult filteredValue={filtered} tradeMarks={trademarks} allSuggetion={allSuggetion}/>
+              <TradeMarkResult tradeMarks={trademarks} allSuggetion={allSuggetion}/>
             </div>
           </div>
         </div>

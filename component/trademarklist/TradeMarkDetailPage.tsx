@@ -9,9 +9,13 @@ import TopTradeMarks from "../common/TopTradeMarks";
 import Image from "next/image";
 import moment from "moment";
 
-const TradeMarkDetailPage = ({tradeDetails, allSuggetion}) => {
+type Props = {
+  tradeDetails: any;
+  allSuggetion: Array<any>;
+};
 
-  
+const TradeMarkDetailPage: React.FC<Props> = ({tradeDetails, allSuggetion}) => {
+
   const dispatch = useDispatch();
   useEffect(() => {
     document.body.className += "lightsky-bg";
@@ -31,7 +35,7 @@ const TradeMarkDetailPage = ({tradeDetails, allSuggetion}) => {
   return (
     <>
       <SubHeader allSuggetion={allSuggetion}/>
-
+    {console.log("tradeDetails",tradeDetails)}
       <section
         className={`${Styles[`detail-section`]} pt-5 mt-4 position-relative`}
       >
@@ -95,6 +99,7 @@ const TradeMarkDetailPage = ({tradeDetails, allSuggetion}) => {
           <div
             className={`${Styles[`trademarkdetails-row`]} row mt-3 mb-5 pb-4`}
           >
+            {/* {tradeDetails.map((tradeDetails, index) => ( */}
             <div className="col-sm-12">
               <div
                 className={`${
@@ -164,7 +169,8 @@ const TradeMarkDetailPage = ({tradeDetails, allSuggetion}) => {
                   </div>
                   <div className={`${Styles[`branddetail-right-label`]}`}>
                     <span className={`${Styles[`detailnormal-txt`]} fw-600`}>
-                      {moment(tradeDetails.registration_date).format('MMMM D, YYYY') == "Invalid date" ? "-" : moment(tradeDetails.registration_date).format('MMMM D, YYYY')}     
+                    {/* {moment(tradeDetails.registration_date, "MMMM D, YYYY") } */}
+                      {moment(tradeDetails.registration_date).format('MMMM DD YYYY') == "Invalid date" ? "-" : moment(tradeDetails.registration_date).format('MMMM DD YYYY')}     
                     </span>
                   </div>
                 </div>
@@ -202,7 +208,8 @@ const TradeMarkDetailPage = ({tradeDetails, allSuggetion}) => {
                   </div>
                   <div className={`${Styles[`branddetail-right-label`]}`}>
                     <span className={`${Styles[`detailnormal-txt`]} fw-600`}>
-                     {moment(tradeDetails.first_use_anywhere_date).format('MMMM D, YYYY') == "Invalid date" ? "-" : moment(tradeDetails.first_use_anywhere_date).format('MMMM D, YYYY')}
+                    {/* {moment(tradeDetails.first_use_anywhere_date, "MMMM D, YYYY")} */}
+                     {moment(tradeDetails.first_use_anywhere_date).format('MMMM DD YYYY') == "Invalid date" ? "-" : moment(tradeDetails.first_use_anywhere_date).format('MMMM DD YYYY')}
                     </span>
                   </div>
                 </div>
@@ -235,6 +242,7 @@ const TradeMarkDetailPage = ({tradeDetails, allSuggetion}) => {
                 </div>
               </div>
             </div>
+             {/* ))}  */}
           </div>
           <div className="row mb-4 pb-3">
             <div className="col-sm-12">

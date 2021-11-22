@@ -5,12 +5,11 @@ import Styles from "./tradeMarkResult.module.css";
 import BrandCardDetail from "../common/BrandCardDetail";
 
 type Props = {
-  filteredValue: Array<any>;
   tradeMarks: Array<any>;
   allSuggetion: Array<any>;
 };
 
-const TradeMarkResult: React.FC<Props> = ({ filteredValue, tradeMarks }) => {
+const TradeMarkResult: React.FC<Props> = ({ tradeMarks }) => {
   const [currentPage, setCurrentPage] = useState<number>(0);
 
   const PER_PAGE = 3;

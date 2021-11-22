@@ -1,6 +1,5 @@
-import axios from "axios";
 import { useRouter } from "next/router";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import TrademarkDetailPage from "../../component/trademarklist/TradeMarkDetailPage";
 
 
@@ -14,13 +13,10 @@ const testApi =  async () => {
 
 
 const TrademarkDetail = ({eventDetails, allSuggetion}) => {
-  const router = useRouter();
-
-  const [details, useDetails] = useState({})
 
   return (
     <div>
-      <TrademarkDetailPage tradeDetails={eventDetails.result} allSuggetion={allSuggetion} />
+      <TrademarkDetailPage tradeDetails={eventDetails} allSuggetion={allSuggetion} />
     </div>
   );
 };
@@ -52,7 +48,7 @@ export const getStaticProps = async (context) => {
   
   return {
       props: {
-        eventDetails,
+        eventDetails : eventDetails.result,
         allSuggetion
       },
       revalidate: 10
