@@ -1,11 +1,10 @@
 import { useRouter } from "next/router";
 import React from "react";
 import TrademarkDetailPage from "../../component/trademarklist/TradeMarkDetailPage";
-import { API_URL } from "../../constant/apiurl";
 
 
 const testApi =  async () => {
-  const response = await fetch(`${API_URL}/trademark?mark_identification=`)
+  const response = await fetch(`http://54.148.29.225:3000/trademark?mark_identification=`)
 
     const data = await response.json();
     
@@ -40,11 +39,11 @@ export const getStaticPaths = async () => {
 }
 
 export const getStaticProps = async (context) => {
-  const response = await fetch(`${API_URL}/trademark/${context.params.trademarkdetail}`)
+  const response = await fetch(`http://54.148.29.225:3000/trademark/${context.params.trademarkdetail}`)
 
   const eventDetails = await response.json();
 
-  const response1 = await fetch(`${API_URL}/trademark?mark_identification=`)
+  const response1 = await fetch(`http://54.148.29.225:3000/trademark?mark_identification=`)
 
   const allSuggetion = await response1.json();
 

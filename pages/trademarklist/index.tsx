@@ -2,7 +2,6 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import TrademarkListPage from "../../component/trademarklist/TradeMarkListPage";
-import { API_URL } from "../../constant/apiurl";
 
 interface Ireducer {
   search: any;
@@ -11,7 +10,7 @@ interface Ireducer {
 }
 
 const testApi =  async () => {
-  const response = await fetch(`${API_URL}/trademark?mark_identification=`)
+  const response = await fetch(`http://54.148.29.225:3000/trademark?mark_identification=`)
 
     const data = await response.json();
     

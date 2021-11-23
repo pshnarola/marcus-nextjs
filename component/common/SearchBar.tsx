@@ -6,7 +6,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { SEARCH_DATA, TRADE_LIST_DATA } from "../../store/actions/search/actionTypes";
 import axios from "axios";
 import debounce from 'lodash/debounce';
-import { API_URL } from "../../constant/apiurl";
 
 interface Istate {
   activeSuggestion: number;
@@ -53,7 +52,7 @@ const SearchBar = ({allSuggetion}) => {
   const dispatch = useDispatch();
 
   const sendQuery = (userInput) => {
-    axios.get(`${API_URL}/trademark?mark_identification=${userInput}`)
+    axios.get(`http://54.148.29.225:3000/trademark?mark_identification=${userInput}`)
     .then(res => 
     // setTrademarksugg(res.data.response)
     dispatch({
