@@ -47,7 +47,7 @@ const SearchBar = ({allSuggetion}) => {
   const dispatch = useDispatch();
 
   const sendQuery = (userInput) => {
-    axios.get(`http://192.168.100.39:3001/trademark?mark_identification=${userInput}`)
+    axios.get(`http://54.148.29.225:3000/trademark?mark_identification=${userInput}`)
     .then(res => 
     // setTrademarksugg(res.data.response)
     dispatch({
