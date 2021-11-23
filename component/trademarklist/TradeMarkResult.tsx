@@ -3,16 +3,22 @@ import Link from "next/link";
 import ReactPaginate from "react-paginate";
 import Styles from "./tradeMarkResult.module.css";
 import BrandCardDetail from "../common/BrandCardDetail";
+import { useSelector } from "react-redux";
 
 type Props = {
   tradeMarks: Array<any>;
   allSuggetion: Array<any>;
 };
 
+interface Ireducer {
+  search: any;
+  searchData: string;
+}
+
 const TradeMarkResult: React.FC<Props> = ({ tradeMarks }) => {
   const [currentPage, setCurrentPage] = useState<number>(0);
 
-  const PER_PAGE = 3;
+  const PER_PAGE = 5;
   const off_set = currentPage * PER_PAGE;
 
   const currentPageData = tradeMarks && tradeMarks.slice(off_set, off_set + PER_PAGE);
@@ -23,12 +29,18 @@ const TradeMarkResult: React.FC<Props> = ({ tradeMarks }) => {
     setCurrentPage(selectedPage);
   }
 
+  const searchedData = useSelector(
+    (state: Ireducer) => state.search.searchData
+  );
+
+
+  
   return (
     <>
       <div>
         <h2 className="section-heading-medium mb-3 pb-1">Search Results</h2>
         <small className={`${Styles[`showresult-txt`]} mb-1 d-inline-block`}>
-          Showing Result <span>1-20</span> for <span>'Nike'</span>
+          Showing Result <span>1-{pageCount}</span> for <span>'{searchedData}'</span>
         </small>
         <div className={`${Styles[`search-tab-list`]} position-relative`}>
           <ul className={`${Styles[`card-body`]}`}>

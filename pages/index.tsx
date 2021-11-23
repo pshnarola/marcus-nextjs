@@ -2,11 +2,11 @@ import MainHeader from "../component/layout/MainHeader";
 import BannerSection from "../component/layout/BannerSection";
 import AboutSection from "../component/home/AboutSection";
 import Footer from "../component/layout/Footer";
-
+import {API_URL} from "../constant/apiurl";
 
 const testApi =  async () => {
 
-  const response = await fetch(`http://54.148.29.225:3000/trademark?mark_identification=`)
+  const response = await fetch(`${API_URL}/trademark?mark_identification=`)
 
     const data = await response.json();
     

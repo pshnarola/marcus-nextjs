@@ -6,10 +6,11 @@ import { useSelector, useDispatch } from "react-redux";
 import { SEARCH_DATA, TRADE_LIST_DATA } from "../../store/actions/search/actionTypes";
 import axios from "axios";
 import debounce from 'lodash/debounce';
+import { API_URL } from "../../constant/apiurl";
 
 interface Istate {
   activeSuggestion: number;
-  filteredSuggestions?: Array<string>;
+  filteredSuggestions?: Array<any>;
   showSuggestions: boolean;
   userInput: string;
   flag?: boolean;
@@ -20,6 +21,7 @@ interface Ireducer {
   search: any;
   searchbarWidth: any;
   tradelistData: any; 
+  searchData: string;
 }
 
 const SearchBar = ({allSuggetion}) => {
@@ -29,9 +31,9 @@ const SearchBar = ({allSuggetion}) => {
     activeSuggestion: 0,
     filteredSuggestions: [],
     showSuggestions: false,
-    userInput: null ,
+    userInput: null,
     flag: false,
-    selectTrad: ""
+    selectTrad: "",
   });
 
   const timeout = useRef()
@@ -40,6 +42,10 @@ const SearchBar = ({allSuggetion}) => {
     (state: Ireducer) => state.searchbarWidth.searchbarWidth
   );
 
+  // const searchedData = useSelector(
+  //   (state: Ireducer) => state.search.searchData
+  // );
+
   const trademarklistData = useSelector(
     (state: Ireducer) => state.search.tradelistData
   );
@@ -47,7 +53,7 @@ const SearchBar = ({allSuggetion}) => {
   const dispatch = useDispatch();
 
   const sendQuery = (userInput) => {
-    axios.get(`http://54.148.29.225:3000/trademark?mark_identification=${userInput}`)
+    axios.get(`${API_URL}/trademark?mark_identification=${userInput}`)
     .then(res => 
     // setTrademarksugg(res.data.response)
     dispatch({
@@ -62,15 +68,48 @@ const SearchBar = ({allSuggetion}) => {
   }, [state.flag]);
 
 
-// const onChangeHandler2 = debounce((val)=>{
+const onChangeHandler = debounce((val)=>{
+  setTrademarksugg(val)
+  const userInput = val ;
+
+  sendQuery(userInput)  // temp
+
+  const trad = trademarklistData.filter(function (sugg) {
+  // const trad = allSuggetion.response.filter(function (sugg) {
+    if(sugg._source.mark_identification.toLowerCase().indexOf(userInput.toLowerCase()) > -1){
+      return sugg;
+    }
+});
+
+
+  const filteredSuggestions = trad.map(
+      (suggestion) => 
+      {
+        // return suggestion._source.mark_identification
+        return suggestion._source
+      }
+    );
+
+    setState({
+      activeSuggestion: 0,
+      filteredSuggestions,
+      showSuggestions: true,
+      userInput,
+      selectTrad: "",
+    });
+  dispatch({
+    type: SEARCH_DATA,
+    payload: userInput,
+  });
+},500) 
+
+// const onChangeHandler2 = (val)=>{
 //   setTrademarksugg(val)
 //   const userInput = val;
+// // console.log("allSuggetion",allSuggetion);
+// sendQuery(val) 
 
-//   // sendQuery(userInput)  // temp
-
-
-//   // const trad = trademarklistData.filter(function (sugg) {
-//   const trad = allSuggetion.response.filter(function (sugg) {
+//   const trad = allSuggetion?.response?.filter(function (sugg) {
 //     if(sugg._source.mark_identification.toLowerCase().indexOf(userInput.toLowerCase()) > -1){
 //       return sugg;
 //     }
@@ -83,57 +122,28 @@ const SearchBar = ({allSuggetion}) => {
 //         return suggestion._source.mark_identification
 //       }
 //     );
+//     // console.log({filteredSuggestions});
+    
 
 //   setState({
 //     activeSuggestion: 0,
 //     filteredSuggestions,
 //     showSuggestions: true,
 //     userInput,
-//     selectTrad: ""
+//     selectTrad: "",
 //   });
 //   dispatch({
 //     type: SEARCH_DATA,
-//     payload: state.userInput,
+//     payload: userInput,
 //   });
-// },500) 
-
-const onChangeHandler = (val)=>{
-  setTrademarksugg(val)
-  const userInput = val;
-// console.log("allSuggetion",allSuggetion);
-
-  const trad = allSuggetion?.response?.filter(function (sugg) {
-    if(sugg._source.mark_identification.toLowerCase().indexOf(userInput.toLowerCase()) > -1){
-      return sugg;
-    }
-});
-
-
-  const filteredSuggestions = trad.map(
-      (suggestion) => 
-      {
-        return suggestion._source.mark_identification
-      }
-    );
-    // console.log({filteredSuggestions});
-    
-
-  setState({
-    activeSuggestion: 0,
-    filteredSuggestions,
-    showSuggestions: true,
-    userInput,
-    selectTrad: ""
-  });
-  dispatch({
-    type: SEARCH_DATA,
-    payload: userInput,
-  });
-}
+// }
 
 
   const onSearchHandler = () => {
     if (router.pathname === "/") {
+      if(state.userInput == "" || state.userInput == null){
+        sendQuery("")
+      }
       router.push("/trademarklist");
       dispatch({
         type: SEARCH_DATA,
@@ -166,6 +176,9 @@ const onChangeHandler = (val)=>{
     // User pressed the enter key
     if (e.keyCode === 13) {
       e.preventDefault();
+       if(state.userInput == "" || state.userInput == null){
+      sendQuery("")
+    }
       setState({
         activeSuggestion: 0,
         showSuggestions: false,
@@ -196,17 +209,15 @@ const onChangeHandler = (val)=>{
     }
   };
 
-  const onClickHandler = (e) => {
-    
+  const onClickHandler = (e, serial_number) => {
     setState({
       activeSuggestion: 0,
       filteredSuggestions: [],
       showSuggestions: false,
       userInput: e.currentTarget.innerText,
-      selectTrad: e.currentTarget.innerText
+      selectTrad: e.currentTarget.innerText,
     });
-    sendQuery(e.currentTarget.innerText) 
-    onSearchHandler();
+    router.push(`/trademarklist/${serial_number}`);
     if (state.activeSuggestion > 0) onSearchHandler();
   };
 
@@ -222,7 +233,6 @@ const onChangeHandler = (val)=>{
           : Styles[`banner-search-control`]
       } position-relative d-flex flex-wrap pb-4 mb-2`}
     >
-  
       <input
       type="text"
       className={`${Styles[`search-input-box`]}`}
@@ -243,7 +253,7 @@ const onChangeHandler = (val)=>{
         state.filteredSuggestions.length ? (
           <ul className={`${Styles[`suggestions`]}`}>
             {state.filteredSuggestions.map((suggestion, index) => {
-              
+
               let className;
               if (index === state.activeSuggestion) {
                 className = "suggestion-active";
@@ -252,11 +262,11 @@ const onChangeHandler = (val)=>{
               }
               return (
                 <li
-                  key={suggestion}
+                  key={suggestion.mark_identification}
                   {...(className ? { className: `${Styles[className]}` } : {})}
-                  onClick={onClickHandler}
+                  onClick={(e) => onClickHandler(e,suggestion.serial_number)}
                 >
-                  {suggestion}
+                  {suggestion.mark_identification}
                 </li>
               );
             })}
